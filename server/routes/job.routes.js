@@ -1,20 +1,20 @@
-const PetController = require('../controllers/pet.controller')
+const JobController = require('../controllers/job.controller')
 
 const routes = (app)=>{
-    app.get('/api', PetController.test)
+    app.get('/api', JobController.test)
 
     //create
-    app.post('/api/pets', PetController.create)
+    app.post('/api/jobs', JobController.create)
 
     //read
-    app.get('/api/pets/:id', PetController.getOne)
-    app.get('/api/pets', PetController.getAll)
+    app.get('/api/jobs/:id', JobController.getOne)
+    app.get('/api/jobs', JobController.getAll)
 
     //update
-    app.put('/api/pets/:id', PetController.updateOne)
+    app.put('/api/jobs/:id', JobController.updateOne)
 
     //delete
-    app.delete('/api/pets/:id', PetController.deleteOne)
+    app.delete('/api/jobs/:id', JobController.deleteOne)
 }
 
 module.exports = routes

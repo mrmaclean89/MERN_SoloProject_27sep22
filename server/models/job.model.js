@@ -1,32 +1,34 @@
 const mongoose = require('mongoose')
 
-const PetSchema = new mongoose.Schema({
+const JobSchema = new mongoose.Schema({
     name:{
         type: String,
-        required:[true,"Pet name required!"],
-        minLength:[3,"Sorry, pet name must be at least 3 letters!"]
+        required:[true,"Job name required."]
     },
-    type:{
-        type:String,
-        required:[true,"Pet type is required!"],
-        minLength:[3, "Type must be at least 3 characters!"]
+    photo:{
+        type:String
     },
     description:{
         type:String,
-        required:[true,"Pet description is required!"],
-        minLength:[3, "Description must be at least 3 characters!"]
+        required:[true,"Description of problem is required."]
     },
-    skill1:{
+    instructions:{
         type:String
     },
-    skill2:{
+    materials:{
         type:String
     },
-    skill3:{
+    tools:{
+        type:String
+    },
+    time:{
+        type:Number
+    },
+    frequency:{
         type:String
     }
 },{timestamps:true})
 
-const Pet = mongoose.model("Pet", PetSchema)
+const Job = mongoose.model("Job", JobSchema)
 
-module.exports = Pet
+module.exports = Job

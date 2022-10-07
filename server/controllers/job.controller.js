@@ -1,16 +1,16 @@
 // QUESTION: If Movie comes from our model.js, why don't we have to import it here? YES
 
-const Pet = require('../models/pet.model')
+const Job = require('../models/job.model')
 
-const PetController = {
+const JobController = {
     test:(req,res)=>{
         res.json({message:"Hello World"})
     },
     //CREATE
     create:(req,res)=>{
-        Pet.create(req.body)
-        .then((pet)=>{
-            res.status(201).json({newPet:pet})
+        Job.create(req.body)
+        .then((job)=>{
+            res.status(201).json({newJob:job})
         })
         .catch((err)=>{
             res.status(400).json({message:"ERROR with POST", error:err})
@@ -18,18 +18,18 @@ const PetController = {
     },
     //READ
     getOne:(req,res)=>{
-        Pet.find({_id:req.params.id})
-        .then((pet)=>{
-            res.status(200).json({onePet:pet})
+        Job.find({_id:req.params.id})
+        .then((job)=>{
+            res.status(200).json({oneJob:job})
         })
         .catch((err)=>{
             res.status(500).json({message:"ERROR with GET ONE",error:err})
         })
     },
     getAll: (req,res)=>{
-        Pet.find({})
-        .then((pet)=>{
-            res.status(200).json({allPets:pet})
+        Job.find({})
+        .then((job)=>{
+            res.status(200).json({allJobs:job})
         })
         .catch((err)=>{
             res.status(500).json({message:"ERROR with GET ALL",error:err})
@@ -37,9 +37,9 @@ const PetController = {
     },
     //UPDATE
     updateOne: (req,res)=>{
-        Pet.findByIdAndUpdate({_id:req.params.id},req.body,{new:true,runValidators:true})
-        .then((pet)=>{
-            res.status(200).json({updatedPet:pet})
+        Job.findByIdAndUpdate({_id:req.params.id},req.body,{new:true,runValidators:true})
+        .then((job)=>{
+            res.status(200).json({updatedJob:job})
         })
         .catch((err)=>{
             res.status(400).json({message:"ERROR with UPDATE",error:err})
@@ -47,9 +47,9 @@ const PetController = {
     },
     //DELETE
     deleteOne: (req,res)=>{
-        Pet.findByIdAndDelete({_id:req.params.id})
-        .then((pet)=>{
-            res.status(200).json({deletedPet:pet})
+        Job.findByIdAndDelete({_id:req.params.id})
+        .then((job)=>{
+            res.status(200).json({deletedJob:job})
         })
         .catch((err)=>{
             res.status(500).json({message:"ERROR with DELETE",error:err})
@@ -57,4 +57,4 @@ const PetController = {
     }
 }
 
-module.exports = PetController
+module.exports = JobController
