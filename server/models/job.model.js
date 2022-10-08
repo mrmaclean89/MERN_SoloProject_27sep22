@@ -8,9 +8,9 @@ const JobSchema = new mongoose.Schema({
     photo:{
         type:String
     },
-    description:{
+    details:{
         type:String,
-        required:[true,"Description of problem is required."]
+        required:[true,"Please describe the problem that needs to be solved."]
     },
     instructions:{
         type:String

@@ -22,9 +22,11 @@ const JobList = () => {
   return (
     <div>
       <h1>My Yard, My Jobs.</h1>
+      <Link to="/newjob">Add New Job</Link>
       <div>
         {jobs.map((job,idx)=>(
-          <button type="" key={idx} className="job-btn">{job.name}</button>
+          <button onClick={()=>navigate(`/viewjob/${job._id}`)}
+          type="" key={idx} className="job-btn">{job.name}</button>
         ))}
       </div>
     </div>
